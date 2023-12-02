@@ -1,4 +1,7 @@
 // import 'package:flutter/material.dart';
+// import 'package:testuchun00111/salom.dart';
+//
+// import 'Main_01.dart';
 //
 // void main() {
 //   runApp(const MyApp());
@@ -11,6 +14,7 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
 //       title: 'Flutter Demo',
 //       theme: ThemeData(
 //         // This is the theme of your application.
@@ -31,7 +35,7 @@
 //         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
 //         useMaterial3: true,
 //       ),
-//       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+//       home: ZValueCalculator(), //TrainFlightList(),//MyHomePage(title: 'Flutter Demo Home Page'),
 //     );
 //   }
 // }
@@ -124,12 +128,658 @@
 //   }
 // }
 
+//
+// import 'package:flutter/material.dart';
+//
+// import 'Main_01.dart';
+//
+// void main() {
+//   runApp(MaterialApp(
+//     home: TrainFlightList(),
+//   ));
+// }
+
+//??? Bu tets uchun edi???///
+
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: CalculatorScreen(),
+//     );
+//   }
+// }
+//
+// class CalculatorScreen extends StatefulWidget {
+//   @override
+//   _CalculatorScreenState createState() => _CalculatorScreenState();
+// }
+//
+// class _CalculatorScreenState extends State<CalculatorScreen> {
+//   int selectedFormula = 1; // Изначально выбрана первая формула
+//   TextEditingController nController = TextEditingController();
+//   double result = 0.0;
+//
+//   void calculateResult() {
+//     int n = int.tryParse(nController.text) ?? 0;
+//
+//     setState(() {
+//       // Реализуйте вычисление значения выражения в зависимости от выбранной формулы
+//       // В данном примере, просто используем формулу суммы обратных чисел от 1 до N
+//       result = calculateSum(n);
+//     });
+//   }
+//
+//   double calculateSum(int n) {
+//     double sum = 0.0;
+//     for (int i = 1; i <= n; i++) {
+//       sum += 1 / i;
+//     }
+//     return sum;
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Calculator App'),
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             DropdownButton(
+//               value: selectedFormula,
+//               items: [
+//                 DropdownMenuItem(
+//                   value: 1,
+//                   child: Text('Формула 1'),
+//                 ),
+//                 DropdownMenuItem(
+//                   value: 2,
+//                   child: Text('Формула 2'),
+//                 ),
+//                 // Добавьте другие формулы по необходимости
+//               ],
+//               onChanged: (value) {
+//                 setState(() {
+//                   selectedFormula = value as int;
+//                 });
+//               },
+//             ),
+//             TextField(
+//               controller: nController,
+//               keyboardType: TextInputType.number,
+//               decoration: InputDecoration(labelText: 'Введите значение N'),
+//             ),
+//             SizedBox(height: 16),
+//             ElevatedButton(
+//               onPressed: calculateResult,
+//               child: Text('Вычислить'),
+//             ),
+//             SizedBox(height: 16),
+//             Text('Результат: $result'),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+/////// bu lb _ 08 /////
+
+
+//
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: CalculatorScreen(),
+//     );
+//   }
+// }
+//
+// class CalculatorScreen extends StatefulWidget {
+//   @override
+//   _CalculatorScreenState createState() => _CalculatorScreenState();
+// }
+//
+// class _CalculatorScreenState extends State<CalculatorScreen> {
+//   int selectedFormula = 1; // Изначально выбрана первая формула
+//   TextEditingController nController = TextEditingController();
+//   double result = 0.0;
+//
+//   void calculateResult() {
+//     int n = int.tryParse(nController.text) ?? 0;
+//
+//     setState(() {
+//       // Реализуйте вычисление значения выражения в зависимости от выбранной формулы
+//       switch (selectedFormula) {
+//         case 1:
+//           result = calculateSum(n);
+//           break;
+//         case 2:
+//           result = calculateProductSum(n);
+//           break;
+//       // Добавьте другие формулы по необходимости
+//       }
+//     });
+//   }
+//
+//   double calculateSum(int n) {
+//     double sum = 0.0;
+//     for (int i = 1; i <= n; i++) {
+//       sum += 1 / i;
+//     }
+//     return sum;
+//   }
+//
+//   double calculateProductSum(int n) {
+//     double sum = 0.0;
+//     for (int i = 1; i <= n; i++) {
+//       sum += (2 * i) / (calculateFactorial(i));
+//     }
+//     return sum;
+//   }
+//
+//   int calculateFactorial(int num) {
+//     if (num == 0 || num == 1) {
+//       return 1;
+//     } else {
+//       return num * calculateFactorial(num - 1);
+//     }
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Calculator App '),
+//       ),
+//       body: Padding(
+//         padding: const EdgeInsets.all(16.0),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             DropdownButton(
+//               value: selectedFormula,
+//               items: [
+//                 DropdownMenuItem(
+//                   value: 1,
+//                   child: Text('Формула 1'),
+//                 ),
+//                 DropdownMenuItem(
+//                   value: 2,
+//                   child: Text('Формула 2'),
+//                 ),
+//                 // Добавьте другие формулы по необходимости
+//               ],
+//               onChanged: (value) {
+//                 setState(() {
+//                   selectedFormula = value as int;
+//                 });
+//               },
+//             ),
+//             TextField(
+//               controller: nController,
+//               keyboardType: TextInputType.number,
+//               decoration: InputDecoration(labelText: 'Введите значение N'),
+//             ),
+//             SizedBox(height: 16),
+//             ElevatedButton(
+//               onPressed: calculateResult,
+//               child: Text('Вычислить'),
+//             ),
+//             SizedBox(height: 16),
+//             Text('Результат: $result'),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+////??? bu LB _ 09 ???///
+
+//
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       title: 'Flutter Expression Calculator',
+//       theme: ThemeData(
+//         primarySwatch: Colors.blue,
+//       ),
+//       home: ExpressionCalculatorApp(),
+//     );
+//   }
+// }
+//
+// class ExpressionCalculatorApp extends StatefulWidget {
+//   @override
+//   _ExpressionCalculatorAppState createState() => _ExpressionCalculatorAppState();
+// }
+//
+// class _ExpressionCalculatorAppState extends State<ExpressionCalculatorApp> {
+//   int selectedN = 1;
+//   int selectedK = 1;
+//   int a = 0;
+//   int b = 0;
+//   double result = 0.0;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Expression Calculator  IsMoiL'),
+//       ),
+//       body: Center(
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: <Widget>[
+//             DropdownButton(
+//               value: selectedN,
+//               onChanged: (newValue) {
+//                 setState(() {
+//                   selectedN = newValue!;
+//                 });
+//               },
+//               items: <int>[1, 2, 3, 4, 5].map((int value) {
+//                 return DropdownMenuItem<int>(
+//                   value: value,
+//                   child: Text('N: $value'),
+//                 );
+//               }).toList(),
+//             ),
+//             DropdownButton(
+//               value: selectedK,
+//               onChanged: (newValue) {
+//                 setState(() {
+//                   selectedK = newValue!;
+//                 });
+//               },
+//               items: <int>[1, 2, 3, 4, 5].map((int value) {
+//                 return DropdownMenuItem<int>(
+//                   value: value,
+//                   child: Text('K: $value'),
+//                 );
+//               }).toList(),
+//             ),
+//             TextField(
+//               keyboardType: TextInputType.number,
+//               onChanged: (value) {
+//                 setState(() {
+//                   a = int.parse(value);
+//                 });
+//               },
+//               decoration: InputDecoration(labelText: 'a'),
+//             ),
+//             TextField(
+//               keyboardType: TextInputType.number,
+//               onChanged: (value) {
+//                 setState(() {
+//                   b = int.parse(value);
+//                 });
+//               },
+//               decoration: InputDecoration(labelText: 'b'),
+//             ),
+//             Text(
+//               'Result: $result',
+//               style: Theme.of(context).textTheme.headline4,
+//             ),
+//             ElevatedButton(
+//               onPressed: () {
+//                 setState(() {
+//                   result = calculateExpressionFormula(selectedN, selectedK, a, b);
+//                 });
+//               },
+//               child: Text('Calculate'),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+//
+//   double calculateExpressionFormula(int N, int K, int a, int b) {
+//     // Implement the formula calculation here
+//     double result = 0.0;
+//     // ...
+//
+//     return result;
+//   }
+//}
+
+///??? lb_09////
+///
+// ///
+// import 'package:flutter/material.dart';
+// import 'database_helper.dart';
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(title: Text('Book Database')),
+//         body: MyDatabase(),
+//       ),
+//     );
+//   }
+// }
+//
+// class MyDatabase extends StatefulWidget {
+//   @override
+//   _MyDatabaseState createState() => _MyDatabaseState();
+// }
+//
+// class _MyDatabaseState extends State<MyDatabase> {
+//   DatabaseHelper helper = DatabaseHelper.instance;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Center(
+//       child: Column(
+//         mainAxisAlignment: MainAxisAlignment.center,
+//         children: [
+//           ElevatedButton(
+//             onPressed: () async {
+//               Map<String, dynamic> book = {
+//                 'title': 'Book Title',
+//                 'edition': 1,
+//                 'author': 'Book Author',
+//                 'resource_type': 'Book'
+//               };
+//               await helper.insertBook(book);
+//             },
+//             child: Text('Add Book'),
+//           ),
+//           ElevatedButton(
+//             onPressed: () async {
+//               Map<String, dynamic> book = {
+//                 'title': 'Book Title',
+//                 'edition': 1,
+//                 'author': 'Book Author',
+//                 'resource_type': 'Book'
+//               };
+//               await helper.insertBook(book);
+//             },
+//             child: Text('Add Jurnal'),
+//           ),
+//           ElevatedButton(
+//             onPressed: () async {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(builder: (context) => SecondRoute()),)
+//               Map<String, dynamic> book = {
+//                 'title': 'Book Title',
+//                 'edition': 1,
+//                 'author': 'Book Author',
+//                 'resource_type': 'Book'
+//               };
+//               await helper.insertBook(book);
+//             },
+//             child: Text('Add Elresurs'),
+//           ),
+//           ElevatedButton(
+//             onPressed: () async {
+//               List<Map<String, dynamic>> books = await helper.getBooks();
+//               books.forEach((book) {
+//                 print('Book: $book');
+//               });
+//             },
+//             child: Text('Get Books'),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+// class SecondRoute {
+//   const SecondRoute();
+// }
+
+/// LAbaratoriya 04///
+///
+// ///
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(MyApp());
+// }
+//
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       debugShowCheckedModeBanner: false,
+//       home: ResourceListScreen(),
+//     );
+//   }
+// }
+//
+// class ResourceListScreen extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Ресурсы LB_04 IsMoiL'),
+//       ),
+//       body: Column(
+//         children: [
+//           ElevatedButton(
+//             onPressed: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => BookActivity(),
+//                 ),
+//               );
+//             },
+//             child: Text('Книги'),
+//           ),
+//           ElevatedButton(
+//             onPressed: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => jurnalActivity(),
+//                 ),
+//               );
+//             },
+//             child: Text('Журналы'),
+//           ),
+//           ElevatedButton(
+//             onPressed: () {
+//               Navigator.push(
+//                 context,
+//                 MaterialPageRoute(
+//                   builder: (context) => elresursActivity(),
+//                 ),
+//               );
+//             },
+//             child: Text('Электронные ресурсы'),
+//           ),
+//         ],
+//       ),
+//     );
+//   }
+// }
+//
+//
+//
+//
+//
+// // Модель данных для книги
+// class Book {
+//   final String title;
+//   final String author;
+//
+//   Book({required this.title, required this.author});
+// }
+//
+// // Активность для работы с книгами
+// class BookActivity extends StatelessWidget {
+//   final List<Book> books = [
+//     Book(title: 'Книга 1', author: 'Автор 1'),
+//     Book(title: 'Книга 2', author: 'Автор 2'),
+//     // Добавьте свои книги
+//   ];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Книги'),
+//       ),
+//       body: ListView.builder(
+//         itemCount: books.length,
+//         itemBuilder: (context, index) {
+//           return ListTile(
+//             title: Text(books[index].title),
+//             subtitle: Text(books[index].author),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+//
+//
+// // Модель данных для книги
+// class jurnal {
+//   final String title;
+//   final String author;
+//
+//   jurnal({required this.title, required this.author});
+// }
+//
+// // Активность для работы с jurnal
+// class jurnalActivity extends StatelessWidget {
+//   final List<Book> books = [
+//     Book(title: 'Журналы 1', author: 'Автор 1'),
+//     Book(title: 'Журналы 2', author: 'Автор 2'),
+//     // Добавьте свои книги
+//   ];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Журналы'),
+//       ),
+//       body: ListView.builder(
+//         itemCount: books.length,
+//         itemBuilder: (context, index) {
+//           return ListTile(
+//             title: Text(books[index].title),
+//             subtitle: Text(books[index].author),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+//
+//
+// // Модель данных для книги
+// class elresurs {
+//   final String title;
+//   final String author;
+//
+//   elresurs({required this.title, required this.author});
+// }
+//
+// // Активность для работы с книгами
+// class elresursActivity extends StatelessWidget {
+//   final List<Book> books = [
+//     Book(title: 'Электронные ресурсы 1', author: 'Автор 1'),
+//     Book(title: 'Электронные ресурсы 2', author: 'Автор 2'),
+//     // Добавьте свои книги
+//   ];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('Электронные ресурсы'),
+//       ),
+//       body: ListView.builder(
+//         itemCount: books.length,
+//         itemBuilder: (context, index) {
+//           return ListTile(
+//             title: Text(books[index].title),
+//             subtitle: Text(books[index].author),
+//           );
+//         },
+//       ),
+//     );
+//   }
+// }
+
+
+///   Labaratoriya - 06 ///
+///
+///
 
 import 'package:flutter/material.dart';
-// import 'book_screen.dart';
-// import 'journal_screen.dart';
-// import 'el_resource_screen.dart';
-import 'lb_03.dart';
+
+// Класс, представляющий печатное издание
+class PrintPublication {
+  final String title;
+  final String author;
+  final int pages;
+
+  PrintPublication({
+    required this.title,
+    required this.author,
+    required this.pages,
+  });
+}
+
+// Виджет для отображения информации о печатном издании
+class PrintPublicationWidget extends StatelessWidget {
+  final PrintPublication publication;
+
+  PrintPublicationWidget({required this.publication});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: ListTile(
+        title: Text(publication.title),
+        subtitle: Text('${publication.author} - ${publication.pages} pages'),
+      ),
+    );
+  }
+}
 
 void main() {
   runApp(MyApp());
@@ -138,54 +788,24 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    // Пример данных о печатных изданиях
+    List<PrintPublication> publications = [
+      PrintPublication(title: 'Book 1', author: 'Author 1', pages: 200),
+      PrintPublication(title: 'Book 2', author: 'Author 2', pages: 150),
+      PrintPublication(title: 'Magazine 1', author: 'Editor 1', pages: 50),
+    ];
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Navigator Example',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: MainScreen(),
-    );
-  }
-}
-
-class MainScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Пример Navigator')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => BookScreen()),
-                );
-              },
-
-              child: Text('Перейти на экран книги'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => JournalScreen()),
-                );
-              },
-
-              child: Text('Перейти к экрану журнала'),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => ElResourceScreen()),
-                );
-              },
-              child: Text('Перейти на экран ЭлРесурса'),
-            ),
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Печатные публикации'),
+        ),
+        body: ListView.builder(
+          itemCount: publications.length,
+          itemBuilder: (context, index) {
+            return PrintPublicationWidget(publication: publications[index]);
+          },
         ),
       ),
     );
